@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+<h1> ➫ Latest Posts ⤵</h1>
+<br>
+
+<ul>
+{% for post in object_list %}
+<li>
+
+	<a href="{% url 'article_details' post.pk %}">
+	<h7> {{ post.title }} </h7> </a>
+	<br>
+	<small>
+<!-- 	{{ post.author }} - -->
+<div class='text-warning'>
+	𝒫𝑜𝓈𝓉𝑒𝒹: {{ post.author.first_name }}
+	    {{ post.author.last_name }}, 
+	𝒪𝓃: {{ post.post_date }} </small>
+</div>
+	 <h6> {{ post.body|slice:":500" }}</h6>
+
+{% if user.is_authenticated %}
+
+		<small> <a href="{% url 'update_post' post.pk %}"><h7> Edit </h7></a> ≡
+			    <a href="{% url 'delete_post' post.pk %}"><h7> Delete </h7></a> </small>
+{% endif %}
+<p>—————————————————————————————————————————————————————————</p>
+</li>
+{% endfor %}
+</ul>
+{% endblock %}
