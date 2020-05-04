@@ -8,30 +8,28 @@
 <ul>
 {% for post in object_list %}
 <li>
-	<small>
+
 	<div class='text-warning'>
 <!-- 	𝒫𝑜𝓈𝓉𝑒𝒹: {{ post.author.first_name }} {{ post.author.last_name }} -->
-𝒫𝑜𝓈𝓉𝑒𝒹: {{ post.author }}
-<br>
-	𝒪𝓃: {{ post.post_date }} 
-	</small>
+𝒫𝑜𝓈𝓉𝑒𝒹: {{ post.author }}, 𝑜𝓃: {{ post.post_date }} 
+
 	</div>
-	<h6> {{ post.body|slice:":500"|safe }} 
+
+	<h7> {{ post.body|slice:":500"|safe }} 
 		<a href="{% url 'article_details' post.pk %}"> 
-<!-- 		<small>...see more</small> --> </a>
-	</h6>
+		<small>...see all</small> </a>
+	</h7>
 {% if user.is_authenticated %}
 	{% if request.user == post.author %}
-
+<br>
 	<small>
-		<a class="btn btn-outline text-primary" href="{% url 'update_post' post.pk %}"><h7> Edit </h7></a></button> ≡
-		<a class="btn btn-outline text-primary" href="{% url 'delete_post' post.pk %}"><h7> Delete </h7></a></button>
-	</small> <br>
+		<a class="btn btn-outline text-primary" href="{% url 'update_post' post.pk %}">Edit</a></button> ≡
+		<a class="btn btn-outline text-primary" href="{% url 'delete_post' post.pk %}"> Delete</a></button>
+	</small>
 
 	{% endif %}	
 {% endif %}
-﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏
-
+<br><br>
 </li>
 {% endfor %}
 </ul>
