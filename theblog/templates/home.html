@@ -2,31 +2,36 @@
 
 {% block content %}
 <br>
-<h1> ➫ Latest Posts ⤵</h1>
+<h1> ροsτs ⤵</h1>
 <br>
 
 <ul>
 {% for post in object_list %}
 <li>
-
-	<a href="{% url 'article_details' post.pk %}">
-	<h7> {{ post.title }} </h7> </a>
-	<br>
 	<small>
-<!-- 	{{ post.author }} - -->
-<div class='text-warning'>
-	𝒫𝑜𝓈𝓉𝑒𝒹: {{ post.author.first_name }}
-	    {{ post.author.last_name }}, 
-	𝒪𝓃: {{ post.post_date }} </small>
-</div>
-	 <h6> {{ post.body|slice:":500" }}</h6>
-
+	<div class='text-warning'>
+<!-- 	𝒫𝑜𝓈𝓉𝑒𝒹: {{ post.author.first_name }} {{ post.author.last_name }} -->
+𝒫𝑜𝓈𝓉𝑒𝒹: {{ post.author }}
+<br>
+	𝒪𝓃: {{ post.post_date }} 
+	</small>
+	</div>
+	<h6> {{ post.body|slice:":500"|safe }} 
+		<a href="{% url 'article_details' post.pk %}"> 
+<!-- 		<small>...see more</small> --> </a>
+	</h6>
 {% if user.is_authenticated %}
+	{% if request.user == post.author %}
 
-		<small> <a href="{% url 'update_post' post.pk %}"><h7> Edit </h7></a> ≡
-			    <a href="{% url 'delete_post' post.pk %}"><h7> Delete </h7></a> </small>
+	<small>
+		<a class="btn btn-outline text-primary" href="{% url 'update_post' post.pk %}"><h7> Edit </h7></a></button> ≡
+		<a class="btn btn-outline text-primary" href="{% url 'delete_post' post.pk %}"><h7> Delete </h7></a></button>
+	</small> <br>
+
+	{% endif %}	
 {% endif %}
-<p>—————————————————————————————————————————————————————————</p>
+﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏
+
 </li>
 {% endfor %}
 </ul>

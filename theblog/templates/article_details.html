@@ -2,8 +2,6 @@
 
 {% block content %}
 
-<br><br><br>
-<h1>{{ post.title }}</h1>
 
 <small>
 𝒫𝑜𝓈𝓉𝑒𝒹: {{ post.author.first_name }}
@@ -12,16 +10,19 @@
 </small>
 <br>
 <br>
-{{ post.body }}
-<br>
-<br>
+{{ post.body|safe }}
 
-{% if user.is_authenticated %}
+<!-- {% if user.is_authenticated %}
+	{% if request.user == post.author %}
 
-<a href="{% url 'update_post' post.pk %}" class='btn btn-secondary'>Edit</a>
-<small><a href="{% url 'delete_post' post.pk %}" class="btn btn-danger">Delete</a></small>
-{% endif %}
+	<small>
+	<a href="{% url 'update_post' post.pk %}" class='btn btn-secondary'>Edit</a>
+	<a href="{% url 'delete_post' post.pk %}" class="btn btn-secondary">Delete</a>
+	</small>
+	{% endif %}
 
-<br><br><br><br><br><br><br><br><br><br><br><br>
+{% endif %} -->
+
+<br><br>
 
 {% endblock %}
