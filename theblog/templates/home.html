@@ -3,15 +3,15 @@
 {% block content %}
 
 {% if not user.is_authenticated %}
-<br>
-<h2 class="text-light"> ᗯEᒪᑕOᗰE TO ▹ 𝓜𝔂 𝓑𝓵𝓸𝓰 𝓟𝓪𝓰𝓮 📳 </h2>
-<h5 class="text-light">ᒪOGIᑎ Oᖇ ᖇEGIᔕTEᖇ, ᔕO YOᑌ ᑕᗩᑎ ᔕEE TᕼE ᑭᗩGE ᑕOᑎTEᑎT </h5>
-<br>
+	<br>
+	<h2 class="text-light"> ᗯEᒪᑕOᗰE TO ▹ 𝓜𝔂 𝓟𝓪𝓰𝓮 📳 </h2>
+	<h5 class="text-light">ᒪOGIᑎ Oᖇ ᖇEGIᔕTEᖇ, ᔕO YOᑌ ᑕᗩᑎ ᔕEE TᕼE ᑭᗩGE ᑕOᑎTEᑎT </h5>
+	<br>
 {% endif %}
 
 {% if user.is_authenticated %}
-<h1> ροsτs ⤵</h1>
-<br>
+	<h1> ροsτs ⤵</h1>
+	<br>
 
 <ul>
 {% for post in object_list %}
@@ -36,6 +36,8 @@
 
 	{% endif %}	
 {% endif %}
+
+
 <br><br>
 </li>
 {% endfor %}

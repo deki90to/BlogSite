@@ -14,9 +14,9 @@ class Post(models.Model):
 	# category = models.CharField(max_length=255, default='coding')
 
 
-	def __str__(self):
-		return str(self.author)
+	# def __str__(self):
+	# 	return str(self.author)
 
-	def get_absolute_url(self):
-		# return reverse('article_details', args=(str(self.id)))
-		return reverse('home')
+	# def get_absolute_url(self):
+	# 	# return reverse('article_details', args=(str(self.id)))
+	# 	return reverse('home')
