@@ -5,16 +5,19 @@
 
 {% if user.is_authenticated %}
 
-<br>
 
 <div class='form-group'></div>
 <form method="POST">
 	{% csrf_token %}
-	
-	<button class='btn btn-danger'>Delete</button>
-	<strong>✓ Confirm </strong><br><br>
 
-
+	<h3>𝒫𝑜𝓈𝓉𝑒𝒹: {{ post.author }}, 𝑜𝓃: {{ post.post_date }}</h3>
+	<br>
+	{{ post.body }}
+	<br><br>
+	<button class='btn btn-danger'>Delete</button><strong> ✓</strong>
+	<br><br>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 {% else %}
 You can't delete post if you are not logged in!
 {% endif %}

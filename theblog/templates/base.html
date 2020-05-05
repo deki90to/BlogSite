@@ -25,9 +25,10 @@ body {
   <nav class="navbar navbar-dark">
     <a class="navbar-brand text-light" href="{% url 'home' %}">𝓜𝔂 𝓟𝓪𝓰𝓮 📳</a>
 
- 
   </nav>
 </div>
+
+
 <div>
 
   {% if user.is_authenticated %}
@@ -37,20 +38,18 @@ body {
         <br><br>
   {% else %}
       <a class="btn btn-danger float-right" href="{% url 'register' %}"> ℝ𝕖𝕘𝕚𝕤𝕥𝕖𝕣 🎴</a>
-      <a class="btn btn-danger float-right" href="{% url 'login' %}"> 𝕊𝕚𝕘𝕟 𝕀𝕟 🎴</a>
+      <a class="btn btn-danger float-right" href="{% url 'login' %}"> 𝕃𝕠𝕘𝕀𝕟 🎴</a>
       <br><br>
-
   {% endif %}
 
 
 
-<div class = 'container bg-dark text-light' >
-
-    {% block content %}
-    {% endblock %}
-
-    </div>
-    </div>
+  <div class = 'container bg-dark text-light' >
+      {% block content %}
+      {% endblock %}
+  </div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
 
 
 

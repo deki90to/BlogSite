@@ -2,12 +2,15 @@
 
 {% block content %}
 
+
+
 {% if not user.is_authenticated %}
-	<br>
-	<h2 class="text-light"> ᗯEᒪᑕOᗰE TO ▹ 𝓜𝔂 𝓟𝓪𝓰𝓮 📳 </h2>
-	<h5 class="text-light">ᒪOGIᑎ Oᖇ ᖇEGIᔕTEᖇ, ᔕO YOᑌ ᑕᗩᑎ ᔕEE TᕼE ᑭᗩGE ᑕOᑎTEᑎT </h5>
-	<br>
+	<!-- <h2 class="text-light text-center"> ᗯEᒪᑕOᗰE TO ▹ 𝓜𝔂 𝓟𝓪𝓰𝓮 📳 </h2> -->
+	<h4 class="text-light text-center"><strong>ᒪOGIᑎ Oᖇ ᖇEGIᔕTEᖇ</strong>, ᔕO YOᑌ ᑕᗩᑎ ᔕEE TᕼE ᑭᗩGE ᑕOᑎTEᑎT </h4>
 {% endif %}
+
+
+
 
 {% if user.is_authenticated %}
 	<h1> ροsτs ⤵</h1>
@@ -44,3 +47,4 @@
 {% endif %}
 </ul>
 {% endblock %}
+
