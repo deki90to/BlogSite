@@ -2,27 +2,23 @@
 
 {% block content %}
 
-
+<br>
 <small>
-𝒫𝑜𝓈𝓉𝑒𝒹: {{ post.author.first_name }}
-	{{ post.author.last_name }} <br> 
-	𝒪𝓃: {{ post.post_date }}
+𝒫𝑜𝓈𝓉𝑒𝒹: {{ post.author }}, 𝑜𝓃: {{ post.post_date }}
 </small>
 <br>
 <br>
 {{ post.body|safe }}
-
+<br><br>
 <!-- {% if user.is_authenticated %}
 	{% if request.user == post.author %}
+ -->
 
-	<small>
-	<a href="{% url 'update_post' post.pk %}" class='btn btn-secondary'>Edit</a>
-	<a href="{% url 'delete_post' post.pk %}" class="btn btn-secondary">Delete</a>
-	</small>
-	{% endif %}
 
-{% endif %} -->
-
+<!-- 	{% endif %}
+{% endif %}
+ -->
+ <a href="{% url 'home' %}" class='btn btn-secondary'>Back</a>
 <br><br>
 
 {% endblock %}

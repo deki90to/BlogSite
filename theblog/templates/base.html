@@ -10,13 +10,20 @@
 
     <title>MY BLOG</title>
   </head>
-  <body style = "background:url(https://cdn.pixabay.com/photo/2016/11/29/04/42/conifer-1867371_960_720.jpg)">
 
+<style>
+body {
+  background-image: url('https://cdn.pixabay.com/photo/2016/11/29/04/42/conifer-1867371_960_720.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+</style>
 
 
 <div class="float-left">
   <nav class="navbar navbar-dark">
-    <a class="navbar-brand" href="{% url 'home' %}">𝓜𝔂 𝓑𝓵𝓸𝓰 𝓟𝓪𝓰𝓮 📳</a>
+    <a class="navbar-brand text-light" href="{% url 'home' %}">𝓜𝔂 𝓑𝓵𝓸𝓰 𝓟𝓪𝓰𝓮 📳</a>
 
  
   </nav>
@@ -25,12 +32,12 @@
 
   {% if user.is_authenticated %}
   <p></p>
-        <a class="btn btn-primary float-center" href="{% url 'add_post' %}"> ✎ New </a>
-        <a class="btn btn-danger float-right" href="{% url 'logout' %}"> ✘ Log Out </a>
+        <a class="btn btn-primary float-center" href="{% url 'add_post' %}"> ✎ 𝓝𝓮𝔀  </a>
+        <a class="btn btn-danger float-right" href="{% url 'logout' %}"> ✘ 𝕃𝕠𝕘𝕠𝕦𝕥 </a>
         <br><br>
   {% else %}
-      <a class="btn btn-danger float-right" href="{% url 'register' %}"> ℝegister 🎴</a>
-      <a class="btn btn-danger float-right" href="{% url 'login' %}"> ℓogin 🎴</a>
+      <a class="btn btn-danger float-right" href="{% url 'register' %}"> ℝ𝕖𝕘𝕚𝕤𝕥𝕖𝕣 🎴</a>
+      <a class="btn btn-danger float-right" href="{% url 'login' %}"> 𝕊𝕚𝕘𝕟 𝕀𝕟 🎴</a>
       <br><br>
 
   {% endif %}
