@@ -13,7 +13,7 @@
 
 <style>
 body {
-  background-image: url('https://cdn.pixabay.com/photo/2016/11/29/04/42/conifer-1867371_960_720.jpg');
+  background-image: url('https://c1.wallpaperflare.com/preview/427/745/192/notebook-natural-laptop-macbook.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100% 100%;
@@ -32,9 +32,9 @@ body {
 <div>
 
   {% if user.is_authenticated %}
-  <p></p>
-        <a class="btn btn-primary float-center" href="{% url 'add_post' %}"> ✎ 𝓝𝓮𝔀  </a>
-        <a class="btn btn-danger float-right" href="{% url 'logout' %}"> ✘ 𝕃𝕠𝕘𝕠𝕦𝕥 </a>
+<br>
+        <a class="btn btn-primary float-center" href="{% url 'add_post' %}"> 𝓝𝓮𝔀 𝒫𝑜𝓈𝓉 </a>
+        <a class="btn btn-danger float-right" href="{% url 'logout' %}"> 𝕃𝕠𝕘𝕠𝕦𝕥 </a>
         <br><br>
   {% else %}
       <a class="btn btn-danger float-right" href="{% url 'register' %}"> ℝ𝕖𝕘𝕚𝕤𝕥𝕖𝕣 🎴</a>
@@ -44,12 +44,12 @@ body {
 
 
 
-  <div class = 'container bg-dark text-light' >
+  <div class = 'container text-light' >
       {% block content %}
       {% endblock %}
   </div>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-</div>
+<!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ --></div>
 
 
 
