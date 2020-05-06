@@ -10,17 +10,10 @@
 <br>
 {{ post.body|safe }}
 <br><br>
-<!-- {% if user.is_authenticated %}
-	{% if request.user == post.author %}
- -->
 
-
-<!-- 	{% endif %}
-{% endif %}
- -->
- <a href="{% url 'home' %}" class='btn btn-secondary'>Back</a>
+ <a href="{% url 'home' %}" class='btn btn-secondary'> Back </a>
 <br><br>
 </div>
-<!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
- -->{% endblock %}
+
+ {% endblock %}
 
