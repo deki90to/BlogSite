@@ -4,7 +4,9 @@
 
 
 {% if user.is_authenticated %}
+{% if request.user == post.author %}
 
+<h1>Delete Post?</h1>
 
 <div class='form-group'></div>
 <form method="POST">
@@ -23,6 +25,10 @@
 You can't delete post if you are not logged in!
 
 {% endif %}
+{% endif %}
+
+
+
 
 {% endblock %}
 

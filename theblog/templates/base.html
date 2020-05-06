@@ -20,6 +20,7 @@ body {
 }
 </style>
 
+{% if user.is_authenticated %}
 
 <div class="float-left">
   <nav class="navbar navbar-dark">
@@ -28,16 +29,15 @@ body {
 </div>
 
 
-  {% if user.is_authenticated %}
 <br>
-      <a class="btn btn-primary text-light" href="{% url 'add_post' %}"> 𝓝𝓮𝔀 𝒫𝑜𝓈𝓉 </a>
-      <a class="btn btn-danger float-right" href="{% url 'logout' %}"> 𝕃𝕠𝕘𝕠𝕦𝕥 </a>
+      <a class="btn btn text-light" href="{% url 'add_post' %}"> ➢ 𝓝𝓮𝔀 𝒫𝑜𝓈𝓉 </a>
+      <a class="btn btn-dark float-right text-light" href="{% url 'logout' %}"> 𝓛𝓸𝓰𝓸𝓾𝓽 </a>
       <br><br>
 
   {% else %}
 
-      <a class="btn btn-danger float-right" href="{% url 'register' %}"> ℝ𝕖𝕘𝕚𝕤𝕥𝕖𝕣 🎴</a>
-      <a class="btn btn-danger float-right" href="{% url 'login' %}"> 𝕃𝕠𝕘𝕀𝕟 🎴</a>
+      <a class="btn btn-dark float-right" href="{% url 'register' %}"> 𝓡𝓮𝓰𝓲𝓼𝓽𝓮𝓻 🎴</a>
+      <a class="btn btn-dark float-right" href="{% url 'login' %}"> 𝓛𝓸𝓰𝓲𝓷 🎴</a>
       <br><br>
   {% endif %}
 <br>

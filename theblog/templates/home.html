@@ -2,37 +2,37 @@
 
 {% block content %}
 
+
+
 {% if not user.is_authenticated %}
 <br><br><br><br>
 		<h2 class="text-light text-center"><strong>ᒪOGIᑎ Oᖇ ᖇEGIᔕTEᖇ</strong>
 		<h2 class="text-light text-center">ᔕO YOᑌ ᑕᗩᑎ ᔕEE TᕼE ᑭᗩGE ᑕOᑎTEᑎT </h2>
 {% endif %}
 
-
 {% if user.is_authenticated %}
-<!-- 	<h1> ροsτs ⤵</h1> -->
-<!-- 	<br> -->
 
 <ul>
 	{% for post in object_list %}
 		<li>
+			<strong>
 		<div class='text-warning'>
-			𝒫𝑜𝓈𝓉𝑒𝒹: {{ post.author }}, 𝑜𝓃: {{ post.post_date }} 
+			𝓑𝔂: {{ post.author }}, 𝓓𝓪𝓽𝓮: {{ post.post_date }} 
+			</strong>
 		</div>
 
-		<h8> {{ post.body|slice:":200"|safe }} </h8>
-			<br>
-			<a href="{% url 'article_details' post.pk %}"> 
-			<small class="text-warning"> [Click here to read all] </small> </a>
+		<h8> {{ post.body|slice:":300"|safe }} </h8>
 
+			<a href="{% url 'article_details' post.pk %}"> 
+			<small class="text-warning"> [ Click here to read all ] </small> </a>
 
 		{% if user.is_authenticated %}
 			{% if request.user == post.author %}
-		<br>
-			<small>
-				<a class="btn btn text-light" href="{% url 'update_post' post.pk %}"> Edit </a></button> |
+			<br>
+
+				<a class="btn btn text-light" href="{% url 'update_post' post.pk %}"> Edit </a></button> 
 				<a class="btn btn text-light" href="{% url 'delete_post' post.pk %}"> Delete </a></button>
-			</small>
+
 
 			{% endif %}	
 		{% endif %}
@@ -42,5 +42,8 @@
 	{% endfor %}
 {% endif %}
 </ul>
+
+
+
 {% endblock %}
 
