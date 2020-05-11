@@ -30,14 +30,14 @@ body {
 
 
 <br>
-      <a class="btn btn text-light" href="{% url 'add_post' %}"> ➢ 𝓝𝓮𝔀 𝒫𝑜𝓈𝓉 </a>
-      <a class="btn btn-dark float-right text-light" href="{% url 'logout' %}"> 𝓛𝓸𝓰𝓸𝓾𝓽 </a>
+      <a class="btn btn-dark text-warning" href="{% url 'add_post' %}"> ➢ 𝓝𝓮𝔀 𝒫𝑜𝓈𝓉 </a>
+      <a class="btn btn-dark float-right text-light" href="{% url 'logout' %}"> Logout </a>
       <br><br>
 
   {% else %}
 
-      <a class="btn btn-dark float-right" href="{% url 'register' %}"> 𝓡𝓮𝓰𝓲𝓼𝓽𝓮𝓻 🎴</a>
-      <a class="btn btn-dark float-right" href="{% url 'login' %}"> 𝓛𝓸𝓰𝓲𝓷 🎴</a>
+      <a class="btn btn-dark float-right" href="{% url 'register' %}"> Register 🎴</a>
+      <a class="btn btn-dark float-right" href="{% url 'login' %}"> Login 🎴</a>
       <br><br>
   {% endif %}
 <br>

@@ -10,28 +10,31 @@
 		<h2 class="text-light text-center">ᔕO YOᑌ ᑕᗩᑎ ᔕEE TᕼE ᑭᗩGE ᑕOᑎTEᑎT </h2>
 {% endif %}
 
+
+
 {% if user.is_authenticated %}
 
 <ul>
 	{% for post in object_list %}
 		<li>
 			<strong>
-		<div class='text-warning'>
-			𝓑𝔂: {{ post.author }}, 𝓓𝓪𝓽𝓮: {{ post.post_date }} 
+		<div class='text-light'>
+			{{ post.author }}, {{ post.post_date }} 
 			</strong>
 		</div>
 
 		<h8> {{ post.body|slice:":300"|safe }} </h8>
 
 			<a href="{% url 'article_details' post.pk %}"> 
+				<br>
 			<small class="text-warning"> [ Click here to read all ] </small> </a>
 
 		{% if user.is_authenticated %}
 			{% if request.user == post.author %}
 			<br>
 
-				<a class="btn btn text-light" href="{% url 'update_post' post.pk %}"> Edit </a></button> 
-				<a class="btn btn text-light" href="{% url 'delete_post' post.pk %}"> Delete </a></button>
+				<a class="btn btn text-warning" href="{% url 'update_post' post.pk %}"> Edit </a></button> 
+				<a class="btn btn text-warning" href="{% url 'delete_post' post.pk %}"> Delete </a></button>
 
 
 			{% endif %}	
