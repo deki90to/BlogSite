@@ -2,12 +2,11 @@ from django import forms
 from . models import Post
 
 
-
 class PostForm(forms.ModelForm):
 	class Meta:
 		model = Post
 		# fields = ('title', 'title_tag', 'author', 'body')
-		fields = ('author', 'body')
+		fields = ('author', 'body', 'image',)
 
 		widgets = {
 			# 'title':forms.TextInput(attrs={'class': 'form-control'}),

@@ -8,6 +8,10 @@
 
 <br>
 {{ post.body|safe }}
+		<br>
+		{% if post.image %}
+			<img src="{{ post.image.url }}">
+		{% endif %}
 <br><br>
 
  <a href="{% url 'home' %}" class='btn btn-dark'> Back </a>
