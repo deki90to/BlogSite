@@ -21,22 +21,22 @@
 		<div class='text-light'>
 			{{ post.author }}, {{ post.post_date }} 
 			</strong>
-				<a href="{% url 'article_details' post.pk %}"> 
-				<small class="text-warning"> [ Click here to see all ] </small> </a>
-				<br>
+
 		</div>
 
 		<h8> {{ post.body|slice:":200"|safe }} </h8>
-		<br>
-
 		{% if post.image %}
 			<img src="{{ post.image.url }}">
 		{% endif %}
+		<br>
+			<a href="{% url 'article_details' post.pk %}"> 
+			<small class="text-warning"> [ Click here to see all ] </small> </a>
 
-<!-- 			<a href="{% url 'article_details' post.pk %}"> 
-				<br>
+<!-- 
+			<a href="{% url 'article_details' post.pk %}"> 
 			<small class="text-warning"> [ Click here to see all ] </small> </a>
 			<br> -->
+			<br>
 		{% if user.is_authenticated %}
 			{% if request.user == post.author %}
 			<br>
