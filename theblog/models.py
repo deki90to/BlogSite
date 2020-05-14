@@ -12,8 +12,11 @@ class Post(models.Model):
 	body = models.TextField(blank=True)
 	post_date = models.DateField(auto_now_add=True)
 	image = models.FileField(null=True, blank=True)
+	likes = models.ManyToManyField(User, related_name='blog_posts')
 	# category = models.CharField(max_length=255, default='coding')
 
+	def total_likes(self):
+		return self.likes.count()
 
 	def __str__(self):
 		return str(self.author)

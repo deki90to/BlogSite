@@ -13,10 +13,16 @@
 
 <br><br>
 
- <a href="{% url 'home' %}" class='btn btn-dark'> Back </a>
- <a href="{% url 'update_post' post.pk %}" class='btn btn-dark'> Edit </a>
+<form action="{% url 'like_post' post.pk %}"
+	method='POST'>
+	{% csrf_token %}
+	<button type="submit", name="post_id", value="{{ post.id }}" class="btn btn-primary">👍Like</button> {{ total_likes }} Likes
+</form>	
+<br>
+ <a href="{% url 'home' %}" class='btn btn-dark btn-sm'> Back </a>
+ <a href="{% url 'update_post' post.pk %}" class='btn btn-dark btn-sm'> Edit </a>
 <br><br>
-</div>
 
+</div>
  {% endblock %}
 
