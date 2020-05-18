@@ -23,21 +23,21 @@ body {
 {% if user.is_authenticated %}
 
 <div class="float-left">
-  <nav class="navbar navbar-dark">
-    <a class="navbar-brand text-light" href="{% url 'home' %}"> 𝓜𝔂 𝓕𝓲𝓻𝓼𝓽 𝓟𝓪𝓰𝓮 📳</a>
+  <nav class="navbar">
+    <a class="navbar-brand text-warning" href="{% url 'home' %}"><h3>𝐹𝑒𝒿𝓈 𝓏𝒶 𝓈𝒾𝓇♡𝓉𝒾𝓃𝒿𝓊</h3></a>
   </nav>
 </div>
 
 
 <br>
-      <a class="btn btn-primary text-light" href="{% url 'add_post' %}"> ➢ 𝓝𝓮𝔀 𝒫𝑜𝓈𝓉 </a>
-      <a class="btn btn-dark float-right text-light" href="{% url 'logout' %}"> Logout </a>
+      <a class="btn btn-outline-light" href="{% url 'add_post' %}"><h3> ➢ 𝓝𝓞𝓥𝓐 𝓞𝓑𝓙𝓐𝓥𝓐 </h3></a>
+      <a class="btn btn-dark float-right text-light" href="{% url 'logout' %}">Izloguj se</a>
       <br><br>
 
   {% else %}
 
-      <a class="btn btn-dark float-right" href="{% url 'register' %}"> Register 🎴</a>
-      <a class="btn btn-dark float-right" href="{% url 'login' %}"> Login 🎴</a>
+      <a class="btn btn-dark float-right" href="{% url 'register' %}">Registruj se 🎴</a>
+      <a class="btn btn-dark float-right" href="{% url 'login' %}">Uloguj se 🎴</a>
       <br><br>
   {% endif %}
 <br>

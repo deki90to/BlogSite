@@ -7,19 +7,19 @@
 {% if user.is_authenticated %}
 {% if request.user == post.author %}
 
-	<h1>Update Post</h1>
+	<h1>Izmeni Post</h1>
 
 	<div class='form-group'></div>
 	<form method="POST">
 		{% csrf_token %}
 		{{ form.as_p }}
-		<button class='btn btn-dark'>Update</button>
+		<button class='btn btn-primary'>Izmeni</button>
 		<br><br>
 	</div>
 
 	{% else %}
 
-	You can't edit post if you're not logged in!
+	Moras biti ulogovan!
 	
 {% endif %}
 {% endif %}

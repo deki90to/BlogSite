@@ -3,25 +3,33 @@
 {% block content %}
 
 
-<h4> 𝒫𝑜𝓈𝓉𝑒𝒹: {{ post.author }}, 𝑜𝓃: {{ post.post_date }} </h4>
+<h4> Postavio: {{ post.author }}, Datum: {{ post.post_date }} </h4>
+		{{ post.body|safe }}
+		<br>
 
 		{% if post.image %}
 			<img src="{{ post.image.url }}">
 		{% endif %}
-		<br>
-		{{ post.body|safe }}
-
 <br><br>
-
 <form action="{% url 'like_post' post.pk %}"
 	method='POST'>
 	{% csrf_token %}
-	<button type="submit", name="post_id", value="{{ post.id }}" class="btn btn-primary">👍Like</button> {{ total_likes }} Likes
+
+{% if user.is_authenticated %}
+	{% if liked %}
+		<button type="submit", name="post_id", value="{{ post.id }}" class="btn btn-danger">👎Ne svidja mi se</button> 
+	{% else %}
+		<button type="submit", name="post_id", value="{{ post.id }}" class="btn btn-primary">👍Svidja mi se</button> 
+		{{ total_likes }} Likes
+	{% endif %}
+{% endif %}
+
 </form>	
+	<br>
+	 <a href="{% url 'home' %}" class='btn btn-dark btn-sm'> Nazad </a>
+	 <a href="{% url 'update_post' post.pk %}" class='btn btn-dark btn-sm'> Izmeni </a>
 <br>
- <a href="{% url 'home' %}" class='btn btn-dark btn-sm'> Back </a>
- <a href="{% url 'update_post' post.pk %}" class='btn btn-dark btn-sm'> Edit </a>
-<br><br>
+<br>
 
 </div>
  {% endblock %}

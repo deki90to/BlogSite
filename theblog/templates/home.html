@@ -19,32 +19,25 @@
 		<li>
 			<strong>
 		<div class='text-light'>
-			{{ post.author }}, {{ post.post_date }} 
+			<h4>Postavio: {{ post.author }}, Datum: {{ post.post_date }} </h4>
 			</strong>
 		</div>
 
 		<h8> {{ post.body|slice:":500"|safe }} </h8>
-
-		{% if post.image %}
-			<img src="{{ post.image.url }}">
-		{% endif %}
+		<br>
+			{% if post.image %}
+				<img src="{{ post.image.url }}">
+			{% endif %}
 		<br>
 			<a href="{% url 'article_details' post.pk %}"
-			class="text-warning"> [ Click here to see details ]
+				class="btn btn-primary btn-sm text-light"> Klikni za vise detalja
 			</a>
-			<br><br>
-
-
 		{% if user.is_authenticated %}
 			{% if request.user == post.author %}
 
-			<form action="{% url 'like_post' post.pk %}"
-				method='POST'>
-				{% csrf_token %}
-					<button type="submit", name="post_id", value="{{ post.id }}" class="btn btn-primary">👍Like</button> {{ total_likes }} 
 
-				<a class="btn btn-dark btn-sm text-light" href="{% url 'update_post' post.pk %}"> Edit </a></button> 
-				<a class="btn btn-dark btn-sm text-light" href="{% url 'delete_post' post.pk %}"> Delete </a></button>
+				<a class="btn btn-info btn-sm text-light" href="{% url 'update_post' post.pk %}">Izmeni</a></button> 
+				<a class="btn btn-danger btn-sm text-light" href="{% url 'delete_post' post.pk %}">Obrisi</a></button>
 			</form>
 
 			{% endif %}	
