@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from datetime import datetime, date
+from django_resized import ResizedImageField
 
 
 
@@ -11,9 +12,11 @@ class Post(models.Model):
 	author = models.ForeignKey(User, on_delete=models.CASCADE)
 	body = models.TextField(blank=True)
 	post_date = models.DateField(auto_now_add=True)
-	image = models.FileField(null=True, blank=True)
+	# image = models.FileField(null=True, blank=True)
+	image = ResizedImageField(size=[800,600], upload_to='BlogSite/media/', blank=True, null=True)
 	likes = models.ManyToManyField(User, related_name='blog_posts')
 	# category = models.CharField(max_length=255, default='coding')
+
 
 	def total_likes(self):
 		return self.likes.count()

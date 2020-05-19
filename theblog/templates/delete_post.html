@@ -13,16 +13,20 @@
 	{% csrf_token %}
 
 	<h5>Postavio: {{ post.author }}, Datum: {{ post.post_date }}</h5>
-	<br>
+<br>
 	{{ post.body }}
-	<br><br>
-	<button class='btn btn-danger'>Obrisi</button><strong> ✓</strong>
+
+	{% if post.image %}
+		<img src="{{ post.image.url }}">
+	{% endif %}
+<br>
+	<button class='btn btn-danger'>Obrisi</button><strong> ✓ </strong>
 	<br><br>
 </div>
 
  {% else %}
 
-You can't delete post if you are not logged in!
+ Morate biti ulogovani!
 
 {% endif %}
 {% endif %}
