@@ -13,7 +13,7 @@ class Post(models.Model):
 	body = models.TextField(blank=True)
 	post_date = models.DateField(auto_now_add=True)
 	# image = models.FileField(null=True, blank=True)
-	image = ResizedImageField(size=[800,600], upload_to='BlogSite/media/', blank=True, null=True)
+	image = ResizedImageField(size=[700,500], upload_to='BlogSite/media/', blank=True, null=True)
 	likes = models.ManyToManyField(User, related_name='blog_posts')
 	# category = models.CharField(max_length=255, default='coding')
 

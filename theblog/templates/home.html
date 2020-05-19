@@ -19,7 +19,7 @@
 	<li>
 		<strong>
 	<div class='text-light'>
-		<h4>Postavio: {{ post.author }}, Datum: {{ post.post_date }} </h4>
+		<i><h4> Postavio {{ post.author }} / Datum {{ post.post_date }} </h4></i>
 		</strong>
 	</div>
 
@@ -30,13 +30,13 @@
 		{% endif %}
 	<br>
 		<a href="{% url 'article_details' post.pk %}"
-			class="btn btn-primary btn-sm text-light"> Klikni za vise detalja
+			class="btn btn-secondary btn-sm text-light"> Klikni za vise detalja
 		</a>
 	{% if user.is_authenticated %}
 	{% if request.user == post.author %}
 
 
-		<a class="btn btn-info btn-sm text-light" href="{% url 'update_post' post.pk %}">Izmeni</a></button> 
+		<a class="btn btn-secondary btn-sm text-light" href="{% url 'update_post' post.pk %}">Izmeni</a></button> 
 		<a class="btn btn-danger btn-sm text-light" href="{% url 'delete_post' post.pk %}">Obrisi</a></button>
 	</form>
 
