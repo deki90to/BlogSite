@@ -7,20 +7,20 @@
 {% if user.is_authenticated %}
 {% if request.user == post.author %}
 
-	<h1>Izmeni Post</h1>
+	<h1>Edit Post</h1>
 
 	<div class='form-group'></div>
 	<form method="POST">
 		{% csrf_token %}
 		{{ form.as_p }}
-		<button class='btn btn-primary'>Izmeni</button>
+		<button class='btn btn-primary'>Edit</button>
 		<br><br>
 	</div>
 
 {% else %}
 
 <h1>🚫</h1> 
-<h3>Morate biti ulogovani kao korisnik</h3>
+<h3>Need to be Logged In as POST-USER</h3>
 	
 {% endif %}
 {% endif %}

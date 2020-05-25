@@ -19,7 +19,7 @@
 	<li>
 		<strong>
 	<div class='text-light'>
-		<i><h4> Postavio <strong>{{ post.author }}</strong> / Datum <strong>{{ post.post_date }}</strong> </h4></i>
+		<i><h4> Author: <strong>{{ post.author }}</strong> / {{ post.post_date }} / {{ post.whenpublished }} </h4></i>
 		</strong>
 	</div>
 
@@ -28,15 +28,14 @@
 		{% if post.image %}
 			<img src="{{ post.image.url }}">
 		{% endif %}
-	<br>
-		<a href="{% url 'article_details' post.pk %}"
-			class="btn btn-secondary btn-sm text-light"> Klikni za vise detalja
-		</a>
+		<br>
+
+		<a href="{% url 'article_details' post.pk %}" class="btn btn-dark btn-sm text-light"> Click here for more...</a>
+
 	{% if user.is_authenticated %}
 	{% if request.user == post.author %}
-		<a class="btn btn-secondary btn-sm text-light" href="{% url 'update_post' post.pk %}">Izmeni</a></button> 
-		<a class="btn btn-danger btn-sm text-light" href="{% url 'delete_post' post.pk %}">Obrisi</a></button>
-
+		<a class="btn btn-dark btn-sm text-light" href="{% url 'update_post' post.pk %}">Edit</a></button> 
+		<a class="btn btn-danger btn-sm text-light" href="{% url 'delete_post' post.pk %}">Delete</a></button>
 	{% endif %}	
 	{% endif %}
 

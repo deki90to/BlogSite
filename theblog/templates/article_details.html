@@ -3,7 +3,7 @@
 {% block content %}
 
 
-<h4> <i> Postavio: <strong>{{ post.author }}</strong>, Datum: <strong>{{ post.post_date }}</strong></i> </h4>
+<i><h4> Author: <strong>{{ post.author }}</strong> / {{ post.post_date }} / {{ post.whenpublished }} </h4></i>
 		{{ post.body|safe }}
 <br>
 		{% if post.image %}
@@ -17,18 +17,21 @@
 
 {% if user.is_authenticated %}
 	{% if liked %}
-		<button type="submit", name="post_id", value="{{ post.id }}" class="btn btn-danger">👎Ne svidja mi se</button> 
+		<button type="submit", name="post_id", value="{{ post.id }}" class="btn btn-danger">👎 Unlike</button>
+		{{ total_likes }} Likes
 	{% else %}
-		<button type="submit", name="post_id", value="{{ post.id }}" class="btn btn-primary">👍Svidja mi se</button> 
+		<button type="submit", name="post_id", value="{{ post.id }}" class="btn btn-primary">👍 Like</button> 
 		{{ total_likes }} Likes
 	{% endif %}
 {% endif %}
 
 </form>	
 	<br>
-	 <a href="{% url 'home' %}" class='btn btn-secondary btn-sm'> Nazad </a>
-	 <a href="{% url 'update_post' post.pk %}" class='btn btn-secondary btn-sm'> Izmeni </a>
-	 <a href="{% url 'delete_post' post.pk %}" class='btn btn-danger btn-sm'> Obrisi </a>
+	 <a href="{% url 'home' %}" class='btn btn-dark btn-sm'> Back </a>
+{% if request.user == post.author %}
+	 <a href="{% url 'update_post' post.pk %}" class='btn btn-dark btn-sm'> Edit </a>
+	 <a href="{% url 'delete_post' post.pk %}" class='btn btn-danger btn-sm'> Delete </a>
+{% endif %}
 <br>
 <br>
 
