@@ -15,7 +15,6 @@ class Post(models.Model):
 	# image = models.FileField(null=True, blank=True)
 	image = ResizedImageField(size=[700,500], upload_to='BlogSite/media/', blank=True, null=True)
 	likes = models.ManyToManyField(User, related_name='blog_posts')
-	# category = models.CharField(max_length=255, default='coding')
 
 
 	def total_likes(self):

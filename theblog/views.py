@@ -1,4 +1,3 @@
-# from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from . models import Post
@@ -18,11 +17,6 @@ def LikeView(request, pk):
 		liked = True
 		
 	return HttpResponseRedirect(reverse('article_details', args=[str(pk)]))
-
-# def LikeHome(request, pk):
-# 	post = get_object_or_404(Post, id=request.POST.get('post.id'))
-# 	post.likes.add(request.user)
-# 	return HttpResponseRedirect(reverse('home'), args=[str(pk)])
 
 
 class HomeView(ListView):
