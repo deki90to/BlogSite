@@ -21,29 +21,28 @@ body {
 /*https://c1.wallpaperflare.com/preview/427/745/192/notebook-natural-laptop-macbook.jpg*/
 </style>
 
+
 {% if user.is_authenticated %}
 
-<div class="float-left">
-  <nav class="navbar">
-    <a class="navbar-brand text-light" href="{% url 'home' %}"><h4> 𝑀𝓎 𝐹𝒾𝓇𝓈𝓉 𝐵𝓁🍩𝑔 𝒫𝒶𝑔𝑒 </h4></a>
-  </nav>
-</div>
-
-  <div class="float-right">
-      <a class="btn btn-dark float-right text-light" href="{% url 'logout' %}"> 𝐿𝑜𝑔𝑜𝓊𝓉 </a>
+  <div class="float-left">
+    <nav class="navbar">
+      <a class="navbar-brand text-light" href="{% url 'home' %}"><h4> 𝑀𝓎 𝐹𝒾𝓇𝓈𝓉 𝐵𝓁🍩𝑔 𝒫𝒶𝑔𝑒 </h4></a>
+    </nav>
   </div>
 
-<br>
+    <div class="float-right">
+        <a class="btn btn-danger float-right text-light" href="{% url 'logout' %}"> 𝐿𝑜𝑔𝑜𝓊𝓉 </a>
+    </div>
+
+  <br>
       <a class="text-light" href="{% url 'add_post' %}"><h3> ➢ 𝓝𝓮𝔀 𝓟𝓸𝓼𝓽 </h3></a>
-      <br>
+    {% else %}
+        <a class="btn btn-dark float-right" href="{% url 'register' %}"> 𝑅𝑒𝑔𝒾𝓈𝓉𝑒𝓇 🎴</a>
+        <a class="btn btn-dark float-right" href="{% url 'login' %}"> 𝐿𝑜𝑔𝒾𝓃 🎴</a>
+        <br><br>
 
-  {% else %}
-
-      <a class="btn btn-dark float-right" href="{% url 'register' %}"> 𝑅𝑒𝑔𝒾𝓈𝓉𝑒𝓇 🎴</a>
-      <a class="btn btn-dark float-right" href="{% url 'login' %}"> 𝐿𝑜𝑔𝒾𝓃 🎴</a>
-      <br><br>
-  {% endif %}
-<br>
+    {% endif %}
+  <br>
 
 
   <div class = 'container text-light' >

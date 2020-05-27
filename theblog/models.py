@@ -12,7 +12,7 @@ class Post(models.Model):
 	body = models.TextField(blank = True)
 	post_date = models.DateField(auto_now_add = True)
 	pub_date = models.DateTimeField(auto_now_add = True)
-	image = ResizedImageField(size = [480, 320], upload_to = 'BlogSite/media/', blank = True, null = True)
+	image = ResizedImageField(size = [600, 400], upload_to = 'BlogSite/media/', blank = True, null = True)
 	video = models.FileField(upload_to ='BlogSite/media/', null = True, blank = True)
 	likes = models.ManyToManyField(User, related_name = 'blog_posts')
 

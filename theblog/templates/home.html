@@ -9,9 +9,7 @@
 		<h2 class="text-light text-center"><strong>ᒪOGIᑎ Oᖇ ᖇEGIᔕTEᖇ</strong>
 		<h2 class="text-light text-center">ᔕO YOᑌ ᑕᗩᑎ ᔕEE TᕼE ᑭᗩGE ᑕOᑎTEᑎT </h2>
 {% endif %}
-
-
-
+<br>
 {% if user.is_authenticated %}
 
 <ul>
@@ -36,8 +34,21 @@
 		    </video>
 		{% endif %}
 		<br>
+<!-- 			<form action="{% url 'like_post' post.pk %}"
+				method='POST'>
+				{% csrf_token %}
 
-		<a href="{% url 'article_details' post.pk %}" class="btn btn-dark btn-sm text-light"> Click here for more...</a>
+			{% if user.is_authenticated %}
+				{% if liked %}
+					<button type="submit", name="post_id", value="{{ post.id }}" class="btn btn-danger">👎 Unlike</button>
+					{{ total_likes }}
+				{% else %}
+					<button type="submit", name="post_id", value="{{ post.id }}" class="btn btn-primary">👍 Like</button> 
+					{{ total_likes }}
+				{% endif %}
+			{% endif %} -->
+
+		<a href="{% url 'article_details' post.pk %}" class="btn btn-dark btn-sm text-light"> Details </a>
 
 	{% if user.is_authenticated %}
 	{% if request.user == post.author %}

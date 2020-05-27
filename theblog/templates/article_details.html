@@ -5,40 +5,41 @@
 
 <i><h5> Author: <strong>{{ post.author }}</strong> / {{ post.post_date }} / {{ post.whenpublished }} </h5></i>
 		{{ post.body|safe }}
-<br>
-		{% if post.image %}
-			<img src="{{ post.image.url }}">
-		{% endif %}
-<br>
-		{% if post.video %}
-		    <video width='500' height= '300' id="intro" type="video/mp4" controls preload autoplay>
-		        <source src="{{ post.video.url }}" type="video/mp4">
-		    </video>
-		{% endif %}
 		<br>
+			{% if post.image %}
+				<img src="{{ post.image.url }}">
+			{% endif %}
+		<br>
+			{% if post.video %}
+			    <video width='500' height= '300' id="intro" type="video/mp4" controls preload>
+			        <source src="{{ post.video.url }}" type="video/mp4">
+			    </video>
+			{% endif %}
+		<br>
+
+
 <form action="{% url 'like_post' post.pk %}"
 	method='POST'>
 	{% csrf_token %}
-
-{% if user.is_authenticated %}
-	{% if liked %}
-		<button type="submit", name="post_id", value="{{ post.id }}" class="btn btn-danger">👎 Unlike</button>
-		{{ total_likes }} Likes
-	{% else %}
-		<button type="submit", name="post_id", value="{{ post.id }}" class="btn btn-primary">👍 Like</button> 
-		{{ total_likes }} Likes
+		{% if user.is_authenticated %}
+			{% if liked %}
+				<button type="submit", name="post_id", value="{{ post.id }}" class="btn btn-danger">👎 Unlike</button>
+				{{ total_likes }} Likes
+			{% else %}
+				<button type="submit", name="post_id", value="{{ post.id }}" class="btn btn-primary">👍 Like</button> 
+				{{ total_likes }} Likes
+			{% endif %}
 	{% endif %}
-{% endif %}
-
 </form>	
 	<br>
-	 <a href="{% url 'home' %}" class='btn btn-dark btn-sm'> Back </a>
+
+	<a href="{% url 'home' %}" class='btn btn-dark btn-sm text-light'> Back </a>
 
 
-{% if request.user == post.author %}
-	 <a href="{% url 'update_post' post.pk %}" class='btn btn-dark btn-sm'> Edit </a>
-	 <a href="{% url 'delete_post' post.pk %}" class='btn btn-danger btn-sm'> Delete </a>
-{% endif %}
+	{% if request.user == post.author %}
+		 <a href="{% url 'update_post' post.pk %}" class='btn btn-dark btn-sm text-light'> Edit </a>
+		 <a href="{% url 'delete_post' post.pk %}" class='btn btn-danger btn-sm text-light'> Delete </a>
+	{% endif %}
 <br>
 <br>
 
