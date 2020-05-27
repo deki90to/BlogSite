@@ -13,13 +13,19 @@
 	{% csrf_token %}
 
 	<i><h4> Author: <strong>{{ post.author }}</strong> / {{ post.post_date }} / {{ post.whenpublished }} </h4></i>
-<br>
+	<br>
 	{{ post.body }}
-<br>
-	{% if post.image %}
-		<img src="{{ post.image.url }}">
-	{% endif %}
-<br>
+	<br>
+		{% if post.image %}
+			<img src="{{ post.image.url }}">
+		{% endif %}
+	<br>
+		{% if post.video %}
+	    <video width='480' height= '320' id="intro" type="video/mp4" controls preload>
+	        <source src="{{ post.video.url }}" type="video/mp4">
+	    </video>
+		{% endif %}
+	<br>
 	<button class='btn btn-danger'>Delete </button><strong> ✓ </strong>
 	<br><br>
 </div>

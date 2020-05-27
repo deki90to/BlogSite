@@ -29,11 +29,13 @@ body {
   </nav>
 </div>
 
+  <div class="float-right">
+      <a class="btn btn-dark float-right text-light" href="{% url 'logout' %}"> 𝐿𝑜𝑔𝑜𝓊𝓉 </a>
+  </div>
 
 <br>
-      <a class="btn btn-primary text-light" href="{% url 'add_post' %}"><h5> ➢ 𝓝𝓮𝔀 𝓟𝓸𝓼𝓽 </h5></a>
-      <a class="btn btn-dark float-right text-light" href="{% url 'logout' %}"> 𝐿𝑜𝑔𝑜𝓊𝓉 </a>
-      <br><br>
+      <a class="text-light" href="{% url 'add_post' %}"><h3> ➢ 𝓝𝓮𝔀 𝓟𝓸𝓼𝓽 </h3></a>
+      <br>
 
   {% else %}
 

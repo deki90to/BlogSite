@@ -8,12 +8,13 @@ import math
 
 
 class Post(models.Model):
-	author = models.ForeignKey(User, on_delete=models.CASCADE)
-	body = models.TextField(blank=True)
-	post_date = models.DateField(auto_now_add=True)
-	pub_date = models.DateTimeField(auto_now_add= True)
-	image = ResizedImageField(size=[700,500], upload_to='BlogSite/media/', blank=True, null=True)
-	likes = models.ManyToManyField(User, related_name='blog_posts')
+	author = models.ForeignKey(User, on_delete =models.CASCADE)
+	body = models.TextField(blank = True)
+	post_date = models.DateField(auto_now_add = True)
+	pub_date = models.DateTimeField(auto_now_add = True)
+	image = ResizedImageField(size = [480, 320], upload_to = 'BlogSite/media/', blank = True, null = True)
+	video = models.FileField(upload_to ='BlogSite/media/', null = True, blank = True)
+	likes = models.ManyToManyField(User, related_name = 'blog_posts')
 
 
 	def total_likes(self):
@@ -50,7 +51,6 @@ class Post(models.Model):
 			else:
 				return str(hours) + " hours ago"
 
-		# 1 day to 30 days
 		if diff.days >= 1 and diff.days < 30:
 			days= diff.days
 			if days == 1:

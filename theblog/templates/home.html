@@ -2,7 +2,7 @@
 
 {% block content %}
 
-
+{% load static %}
 
 {% if not user.is_authenticated %}
 <br><br><br><br>
@@ -19,7 +19,7 @@
 	<li>
 		<strong>
 	<div class='text-light'>
-		<i><h4> Author: <strong>{{ post.author }}</strong> / {{ post.post_date }} / {{ post.whenpublished }} </h4></i>
+		<i><h5> Author: <strong>{{ post.author }}</strong> / {{ post.post_date }} / {{ post.whenpublished }} </h5></i>
 		</strong>
 	</div>
 
@@ -27,6 +27,13 @@
 	<br>
 		{% if post.image %}
 			<img src="{{ post.image.url }}">
+		{% endif %}
+		<br>
+
+		{% if post.video %}
+		    <video width='480' height= '320' id="intro" type="video/mp4" controls preload>
+		        <source src="{{ post.video.url }}" type="video/mp4">
+		    </video>
 		{% endif %}
 		<br>
 
