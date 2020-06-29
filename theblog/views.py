@@ -18,31 +18,10 @@ def LikeView(request, pk):
 		
 	return HttpResponseRedirect(reverse('article_details', args=[str(pk)]))
 
-
 class HomeView(ListView):
 	model = Post
 	template_name = 'home.html'
 	ordering = ['-id']
-
-
-# class Home(DetailView):
-# 	model = Post
-# 	template_name = 'home.html'
-# 	ordering = ['-id']
-
-# 	def get_context_data(self, *args, **kwargs):
-# 		context = super(Home, self).get_context_data()
-# 		stuff = get_object_or_404(Post, id=self.kwargs['pk'])
-# 		total_likes = stuff.total_likes()
-
-# 		liked = False
-# 		if stuff.likes.filter(id=self.request.user.id).exists():
-# 			liked = True
-		
-# 		context['total_likes'] = total_likes
-# 		context['liked'] = liked
-# 		return context
-
 
 class articleDetailView(DetailView):
 	model = Post
@@ -60,7 +39,6 @@ class articleDetailView(DetailView):
 		context['total_likes'] = total_likes
 		context['liked'] = liked
 		return context
-
 
 class AddPostView(CreateView):
 	model = Post

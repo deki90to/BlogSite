@@ -5,11 +5,13 @@ from datetime import datetime, date
 from django_resized import ResizedImageField
 from django.utils import timezone
 import math
+from ckeditor.fields import RichTextField
 
 
 class Post(models.Model):
 	author = models.ForeignKey(User, on_delete =models.CASCADE)
-	body = models.TextField(blank = True)
+	# body = models.TextField(blank = True)
+	body = RichTextField(blank = True, null = True)
 	post_date = models.DateField(auto_now_add = True)
 	pub_date = models.DateTimeField(auto_now_add = True)
 	image = ResizedImageField(size = [600, 400], upload_to = 'BlogSite/media/', blank = True, null = True)
