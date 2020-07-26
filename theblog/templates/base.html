@@ -26,19 +26,19 @@ body {
 
   <div class="float-left">
     <nav class="navbar">
-      <a class="navbar-brand text-light" href="{% url 'home' %}"><h4><i>> Home Page</i></h4></a>
+      <a class="navbar-brand text-light" href="{% url 'home' %}"><h4>Home Page <</h4></a>
     </nav>
   </div>
 
     <div class="float-right">
-        <a class="btn btn-danger float-right text-light" href="{% url 'logout' %}"> 𝐿𝑜𝑔𝑜𝓊𝓉 </a>
+        <a class="btn btn-dark float-right text-light" href="{% url 'logout' %}"> Logout </a>
     </div>
 
   <br>
-      <a class="btn btn-dark text-light" href="{% url 'add_post' %}"><h3> ➢ 𝓝𝓮𝔀 𝓟𝓸𝓼𝓽 </h3></a>
+      <a class="btn btn-dark text-light" href="{% url 'add_post' %}"><h4> ➢ New Post </h4></a>
     {% else %}
-        <a class="btn btn-dark float-right" href="{% url 'register' %}"> 𝑅𝑒𝑔𝒾𝓈𝓉𝑒𝓇 🎴</a>
-        <a class="btn btn-dark float-right" href="{% url 'login' %}"> 𝐿𝑜𝑔𝒾𝓃 🎴</a>
+        <a class="btn btn-dark float-right" href="{% url 'register' %}"> Register 🎴</a>
+        <a class="btn btn-dark float-right" href="{% url 'login' %}"> Login 🎴</a>
         <br><br>
 
     {% endif %}
