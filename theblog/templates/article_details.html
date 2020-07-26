@@ -2,39 +2,52 @@
 
 {% block content %}
 
+<br>
+<br>
 
-<i><h5> Author: <strong>{{ post.author }}</strong> / {{ post.post_date }} / {{ post.whenpublished }} </h5></i>
+<i><h5> Author: <strong>{{ post.author }}</strong> / 
+						{{ post.post_date }} / 
+						{{ post.whenpublished }} </h5></i>
+
 		{{ post.body|safe }}
-		<br>
+
 			{% if post.image %}
 				<img src="{{ post.image.url }}">
 			{% endif %}
 		<br>
 			{% if post.video %}
-			    <video width='500' height= '300' id="intro" type="video/mp4" controls preload>
+			    <video width='480' height= '320' id="intro" type="video/mp4" controls preload>
 			        <source src="{{ post.video.url }}" type="video/mp4">
 			    </video>
 			{% endif %}
 		<br>
 
+		<h4>Comments...</h4>
 
-<form action="{% url 'like_post' post.pk %}"
-	method='POST'>
-	{% csrf_token %}
-		{% if user.is_authenticated %}
-			{% if liked %}
-				<button type="submit", name="post_id", value="{{ post.id }}" class="btn btn-danger">👎 Unlike</button>
-				{{ total_likes }} Likes
-			{% else %}
-				<button type="submit", name="post_id", value="{{ post.id }}" class="btn btn-primary">👍 Like</button> 
-				{{ total_likes }} Likes
-			{% endif %}
-	{% endif %}
-</form>	
-	<br>
+		{% if not post.comments.all %}
+			<a href="{% url 'add_comment' post.pk %}">Add Comment</a>
+			<br>
+			<br>
+			No comments.
+
+		{% else %}
+			<a href="{% url 'add_comment' post.pk %}">Add Comment</a>
+			<br>
+			<br>
+			{% for comment in post.comments.all %}
+
+				<i><h6><b>{{ comment.name }}</b> {{ comment.date_added }}</h></i>
+					<br> 
+					> {{ comment.body }}
+			<br>
+			<br>
+			{% endfor %}
+
+		{% endif %}
+
+
 
 	<a href="{% url 'home' %}" class='btn btn-dark btn-sm text-light'> Back </a>
-
 
 	{% if request.user == post.author %}
 		 <a href="{% url 'update_post' post.pk %}" class='btn btn-dark btn-sm text-light'> Edit </a>

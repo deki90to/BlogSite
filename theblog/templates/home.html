@@ -10,6 +10,7 @@
 		<h2 class="text-light text-center">ᔕO YOᑌ ᑕᗩᑎ ᔕEE TᕼE ᑭᗩGE ᑕOᑎTEᑎT </h2>
 {% endif %}
 <br>
+<br>
 {% if user.is_authenticated %}
 
 <ul>
@@ -22,14 +23,14 @@
 	</div>
 
 	<h8> {{ post.body|slice:":500"|safe }} </h8>
-	<br>
+
 		{% if post.image %}
 			<img src="{{ post.image.url }}">
 		{% endif %}
 		<br>
 
 		{% if post.video %}
-		    <video width='500' height= '300' id="intro" type="video/mp4" controls preload>
+		    <video width='480' height= '320' id="intro" type="video/mp4" controls preload>
 		        <source src="{{ post.video.url }}" type="video/mp4">
 		    </video>
 		{% endif %}
@@ -48,7 +49,7 @@
 				{% endif %}
 			{% endif %} -->
 
-		<a href="{% url 'article_details' post.pk %}" class="btn btn-dark btn-sm text-light"> Details </a>
+	<a href="{% url 'article_details' post.pk %}" class="btn btn-dark btn-sm text-light"> Details </a>
 
 	{% if user.is_authenticated %}
 	{% if request.user == post.author %}

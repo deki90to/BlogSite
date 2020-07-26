@@ -9,12 +9,12 @@ from ckeditor.fields import RichTextField
 
 
 class Post(models.Model):
-	author = models.ForeignKey(User, on_delete =models.CASCADE)
+	author = models.ForeignKey(User, on_delete = models.CASCADE)
 	# body = models.TextField(blank = True)
 	body = RichTextField(blank = True, null = True)
 	post_date = models.DateField(auto_now_add = True)
 	pub_date = models.DateTimeField(auto_now_add = True)
-	image = ResizedImageField(size = [600, 400], upload_to = 'BlogSite/media/', blank = True, null = True)
+	image = ResizedImageField(size = [480, 320], upload_to = 'BlogSite/media/', blank = True, null = True)
 	video = models.FileField(upload_to ='BlogSite/media/', null = True, blank = True)
 	likes = models.ManyToManyField(User, related_name = 'blog_posts')
 
@@ -74,3 +74,13 @@ class Post(models.Model):
 				return str(years) + " year ago"
 			else:
 				return str(years) + " years ago"
+
+
+class Comment(models.Model):
+	post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)
+	name = models.CharField(max_length=255)
+	body = models.TextField()
+	date_added = models.DateTimeField(auto_now_add=True)
+
+	def __str__(self):
+		return '%s - %s' % (self.post.author, self.name)
